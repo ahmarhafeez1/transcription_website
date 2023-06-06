@@ -18,6 +18,9 @@ signup = async (req, res) => {
     }
 
 
+    if (!/[a-zA-Z]/.test(password) || !/\d/.test(password) || !/[!@#$%^&*]/.test(password)||  password.length <= 7) {
+      return res.status(400).json({ message: 'Password is too weak' });
+    }
   
 
     console.log('HASH')
