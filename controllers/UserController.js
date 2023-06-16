@@ -1,7 +1,5 @@
 require('dotenv').config()
 const User = require('../models/User')
-
-
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
@@ -10,7 +8,6 @@ signup = async (req, res) => {
   const { firstname, lastname, email, password } = req.body;
 
   try {
-    console.log("Here")
     // Check if the email is already registered
     const existingUser = await User.findOne({ email });
     if (existingUser) {
@@ -19,7 +16,7 @@ signup = async (req, res) => {
 
 
     if (!/[a-zA-Z]/.test(password) || !/\d/.test(password) || !/[!@#$%^&*]/.test(password)||  password.length <= 7) {
-      return res.status(400).json({ message: 'Password is too weak' });
+      return res.status(400).json(user._id);
     }
   
 
@@ -55,11 +52,13 @@ login = async (req, res) => {
     // Find the user by email
     const user = await User.findOne({ email });
 
+
+
     // Check if the user exists and the password is correct
     if (!user || !(await bcrypt.compare(password, user.password))) {
       return res.status(401).json({ message: 'Invalid email or password' });
     }
-
+    
     const token = jwt.sign(
       { userId: user._id, email: user.email },
       process.env.JWT_SECRET, // Replace with your own secret key

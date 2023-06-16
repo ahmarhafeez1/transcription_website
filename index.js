@@ -1,6 +1,7 @@
 const express =require('express')
 const connectDB = require('./config/connect.js');
 const userRoutes = require('./routes/UserRoutes')
+const transcriptionRouter = require('./routes/transcriptionRoutes.js')
 require('dotenv').config();
 
 
@@ -13,9 +14,7 @@ app.use(express.json())
 
 
 app.use('/api/users', userRoutes);
-app.get('/',(req,res)=>{
-    res.send('Hello World')
-})
+app.use('/api/transcription', transcriptionRouter);
 
 app.listen(PORT,()=>{
     console.log(`Listening at PORT: ${PORT}`)
