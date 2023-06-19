@@ -24,7 +24,8 @@
     "openai": "^3.3.0",
     "path": "^0.12.7",
     "qrcode": "^1.5.3",
-    "speakeasy": "^2.0.0"
+    "speakeasy": "^2.0.0",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"
