@@ -2,16 +2,16 @@ const mongoose = require('mongoose');
 
 const transcriptionSchema = new mongoose.Schema(
   {
+
     title: {
       type: String,
       required: true,
       trim: true,
     },
-    ownersEmail: {
+    ownerID: {
       type: String,
       required: true,
       trim: true,
-      lowercase: true,
     },
     audioFileURL: {
       type: String,
