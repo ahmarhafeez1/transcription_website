@@ -51,8 +51,8 @@ const createTranscription = async (req, res) => {
 
 const getTranscriptions = async (req, res) => {
   try {
-    const { userId } = req.params;
-
+    const { userId } = req.user;
+    console.log(userId)
     // Find all transcriptions for the user
     const transcriptions = await Transcription.find({ ownerID: userId });
 
