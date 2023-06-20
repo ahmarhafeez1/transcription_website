@@ -54,7 +54,7 @@ const getTranscriptions = async (req, res) => {
     const { userId } = req.params;
 
     // Find all transcriptions for the user
-    const transcriptions = await Transcription.find({ ownersEmail: userId });
+    const transcriptions = await Transcription.find({ ownerID: userId });
 
     // Return the transcriptions as the response
     return res.status(200).json({
