@@ -45,5 +45,5 @@ AWS_BUCKET_NAME=your-aws-bucket-name <br />
 alizaycheema<br />
 https://github.com/alizaycheema/transcription_app_frontend<br />
 
-##License
+## License <br/>
 This project is licensed under the MIT License.
